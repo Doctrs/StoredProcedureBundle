@@ -2,7 +2,7 @@
 
 namespace Doctrs\StoredProcedureBundle\DependencyInjection;
 
-use Rtt\StoredProcedureBundle\Utils\Procedure;
+use Doctrs\StoredProcedureBundle\Utils\Procedure;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
