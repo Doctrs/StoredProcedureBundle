@@ -10,19 +10,19 @@ use Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException;
 class Procedure implements ProcedureInterface
 {
     /**
-     * @var \ArrayObject
+     * @var ArrayCollection
      */
     private $configurations;
 
     /**
-     * @var \ArrayObject
+     * @var ArrayCollection
      */
     private $connections;
 
     public function __construct()
     {
-        $this->configurations = new \ArrayObject();
-        $this->connections = new \ArrayObject();
+        $this->configurations = new ArrayCollection();
+        $this->connections = new ArrayCollection();
     }
 
     /**
