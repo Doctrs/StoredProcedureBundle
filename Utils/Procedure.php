@@ -2,7 +2,6 @@
 
 namespace Doctrs\StoredProcedureBundle\Utils;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use PgFunc\Configuration;
 use PgFunc\Connection;
 use Symfony\Component\DependencyInjection\Exception\BadMethodCallException;
@@ -11,19 +10,19 @@ use Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException;
 class Procedure implements ProcedureInterface
 {
     /**
-     * @var ArrayCollection
+     * @var \ArrayObject
      */
     private $configurations;
 
     /**
-     * @var ArrayCollection
+     * @var \ArrayObject
      */
     private $connections;
 
     public function __construct()
     {
-        $this->configurations = new ArrayCollection();
-        $this->connections = new ArrayCollection();
+        $this->configurations = new \ArrayObject();
+        $this->connections = new \ArrayObject();
     }
 
     /**
