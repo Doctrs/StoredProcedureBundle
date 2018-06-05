@@ -83,7 +83,7 @@ class Procedure implements ProcedureInterface
     }
 
     /**
-     * @param Configuration $configuration
+     * @param Configuration|string $configuration
      *
      * @return Procedure
      */
@@ -111,7 +111,7 @@ class Procedure implements ProcedureInterface
     }
 
     /**
-     * @param Connection $connection
+     * @param Connection|string $connection
      *
      * @return Procedure
      */
