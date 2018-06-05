@@ -27,7 +27,7 @@ class Procedure implements ProcedureInterface
     }
 
     /**
-     * @param string $connection
+     * @param string            $connection
      * @param \PgFunc\Procedure $procedure
      *
      * @return mixed
@@ -49,12 +49,13 @@ class Procedure implements ProcedureInterface
 
         /** @var Connection $connection */
         $connection = $this->connections->get($connection);
+
         return $connection->queryProcedure($procedure);
     }
 
     /**
      * @param string $key
-     * @param array $connectionData
+     * @param array  $connectionData
      *
      * @return ProcedureInterface
      *
@@ -65,7 +66,7 @@ class Procedure implements ProcedureInterface
         $configuration = new \PgFunc\Configuration();
 
         foreach ($connectionData as $method => $value) {
-            $method = 'set' . str_replace('_', '', ucwords($method, '_'));
+            $method = 'set'.str_replace('_', '', ucwords($method, '_'));
 
             if (!method_exists($configuration, $method)) {
                 throw new BadMethodCallException(

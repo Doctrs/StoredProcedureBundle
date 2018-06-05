@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 class StoredProcedureExtension extends Extension
 {
     /**
-     * @param array $configs
+     * @param array            $configs
      * @param ContainerBuilder $container
      *
      * @throws \Exception
@@ -33,6 +33,6 @@ class StoredProcedureExtension extends Extension
             ]);
         }
 
-        $container->setDefinition('rtt.stored_procedure', $procedureDefinition);
+        $container->setDefinition('doctrs.stored_procedure', $procedureDefinition);
     }
 }
