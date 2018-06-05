@@ -2,10 +2,6 @@
 
 namespace Doctrs\StoredProcedureBundle\Utils;
 
-use ArrayIterator;
-use Closure;
-use Doctrine\Common\Collections\Expr\ClosureExpressionVisitor;
-
 class ArrayCollection
 {
     /**
