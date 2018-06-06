@@ -2,6 +2,7 @@
 
 namespace Doctrs\StoredProcedureBundle\Utils;
 
+<<<<<<< HEAD
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrs\StoredProcedureBundle\Event\ChangeConnectionEvent;
 use Doctrs\StoredProcedureBundle\Event\ChangeConnectionNameEvent;
@@ -13,6 +14,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Exception\BadMethodCallException;
 use Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException;
 use Symfony\Component\EventDispatcher\EventDispatcher;
+=======
+use PgFunc\Configuration;
+use PgFunc\Connection;
+use Symfony\Component\DependencyInjection\Exception\BadMethodCallException;
+use Symfony\Component\DependencyInjection\Exception\ParameterNotFoundException;
+>>>>>>> a3da2e33642080d9ede805ee5c0ec403d45c4167
 
 class Procedure implements ProcedureInterface
 {
@@ -26,6 +33,7 @@ class Procedure implements ProcedureInterface
      */
     private $connections;
 
+<<<<<<< HEAD
     /**
      * @var EventDispatcher
      */
@@ -39,6 +47,10 @@ class Procedure implements ProcedureInterface
     public function __construct(ContainerInterface $container)
     {
         $this->dispatcher = $container->get('event_dispatcher');
+=======
+    public function __construct()
+    {
+>>>>>>> a3da2e33642080d9ede805ee5c0ec403d45c4167
         $this->configurations = new ArrayCollection();
         $this->connections = new ArrayCollection();
     }
@@ -52,6 +64,7 @@ class Procedure implements ProcedureInterface
      * @throws \PgFunc\Exception
      * @throws ParameterNotFoundException
      */
+<<<<<<< HEAD
     public function execute($connection, \PgFunc\Procedure $procedure)
     {
         $event = new ChangeConnectionNameEvent($connection);
@@ -59,6 +72,10 @@ class Procedure implements ProcedureInterface
 
         $connection = $event->getName();
 
+=======
+    public function execute(string $connection, \PgFunc\Procedure $procedure)
+    {
+>>>>>>> a3da2e33642080d9ede805ee5c0ec403d45c4167
         if (!$this->configurations->get($connection)) {
             throw new ParameterNotFoundException(
                 sprintf('Configuration "%s" not found in configuration pool', $connection)
@@ -72,6 +89,7 @@ class Procedure implements ProcedureInterface
         /** @var Connection $connection */
         $connection = $this->connections->get($connection);
 
+<<<<<<< HEAD
         // Connection event
         $event = new ChangeConnectionEvent($connection, $procedure);
         $this->dispatcher->dispatch(StoredProcedureEvents::CONNECTION, $event);
@@ -86,6 +104,9 @@ class Procedure implements ProcedureInterface
         $this->dispatcher->dispatch(StoredProcedureEvents::RESULT, $event);
 
         return $event->getResult();
+=======
+        return $connection->queryProcedure($procedure);
+>>>>>>> a3da2e33642080d9ede805ee5c0ec403d45c4167
     }
 
     /**
@@ -96,7 +117,11 @@ class Procedure implements ProcedureInterface
      *
      * @throws BadMethodCallException
      */
+<<<<<<< HEAD
     public function setConfiguration($key, array $connectionData): ProcedureInterface
+=======
+    public function setConfiguration(string $key, array $connectionData): ProcedureInterface
+>>>>>>> a3da2e33642080d9ede805ee5c0ec403d45c4167
     {
         $configuration = new \PgFunc\Configuration();
 
@@ -118,7 +143,11 @@ class Procedure implements ProcedureInterface
     }
 
     /**
+<<<<<<< HEAD
      * @param Configuration $configuration
+=======
+     * @param Configuration|string $configuration
+>>>>>>> a3da2e33642080d9ede805ee5c0ec403d45c4167
      *
      * @return Procedure
      */
@@ -138,7 +167,11 @@ class Procedure implements ProcedureInterface
      *
      * @return Procedure
      */
+<<<<<<< HEAD
     public function setConnection($key, Connection $connection): ProcedureInterface
+=======
+    public function setConnection(string $key, Connection $connection): ProcedureInterface
+>>>>>>> a3da2e33642080d9ede805ee5c0ec403d45c4167
     {
         $this->connections->set($key, $connection);
 
@@ -146,7 +179,11 @@ class Procedure implements ProcedureInterface
     }
 
     /**
+<<<<<<< HEAD
      * @param Connection $connection
+=======
+     * @param Connection|string $connection
+>>>>>>> a3da2e33642080d9ede805ee5c0ec403d45c4167
      *
      * @return Procedure
      */

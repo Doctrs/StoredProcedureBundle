@@ -14,9 +14,18 @@
   "require": {
     "php": ">=5.6",
     "red-defender/pgfunc": ">=0.2.0",
+<<<<<<< HEAD
     "symfony/flex": ">=1.0"
+=======
+    "symfony/config": ">=3.0",
+    "symfony/dependency-injection": ">=3.0"
+>>>>>>> a3da2e33642080d9ede805ee5c0ec403d45c4167
   },
   "autoload": {
     "psr-4": { "Doctrs\\StoredProcedureBundle\\": "" }
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a3da2e33642080d9ede805ee5c0ec403d45c4167

@@ -30,4 +30,8 @@ class Configuration implements ConfigurationInterface
 
         return $treeBuilder;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a3da2e33642080d9ede805ee5c0ec403d45c4167
