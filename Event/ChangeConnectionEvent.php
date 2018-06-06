@@ -61,7 +61,7 @@ class ChangeConnectionEvent extends Event
      *
      * @return self
      */
-    public function setProcedure(\PgFunc\Procedure $procedure): void
+    public function setProcedure(\PgFunc\Procedure $procedure)
     {
         $this->procedure = $procedure;
 
