@@ -2,7 +2,6 @@
 
 namespace Doctrs\StoredProcedureBundle\Utils;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrs\StoredProcedureBundle\Event\ChangeConnectionEvent;
 use Doctrs\StoredProcedureBundle\Event\ChangeConnectionNameEvent;
 use Doctrs\StoredProcedureBundle\Event\ChangeResultEvent;
