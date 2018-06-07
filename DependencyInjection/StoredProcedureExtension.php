@@ -2,16 +2,17 @@
 
 namespace Doctrs\StoredProcedureBundle\DependencyInjection;
 
-use Rtt\StoredProcedureBundle\Utils\Procedure;
+use Doctrs\StoredProcedureBundle\Utils\Procedure;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class StoredProcedureExtension extends Extension
 {
     /**
-     * @param array $configs
+     * @param array            $configs
      * @param ContainerBuilder $container
      *
      * @throws \Exception
@@ -25,6 +26,9 @@ class StoredProcedureExtension extends Extension
         $procedureDefinition = new Definition(Procedure::class);
         $procedureDefinition->setPublic(true);
         $procedureDefinition->setAutoconfigured(true);
+        $procedureDefinition->setArguments([
+            new Reference('service_container')
+        ]);
 
         foreach ($configs[0]['connections'] as $name => $data) {
             $procedureDefinition->addMethodCall('setConfiguration', [
@@ -33,6 +37,6 @@ class StoredProcedureExtension extends Extension
             ]);
         }
 
-        $container->setDefinition('rtt.stored_procedure', $procedureDefinition);
+        $container->setDefinition('doctrs.stored_procedure', $procedureDefinition);
     }
 }

@@ -10,7 +10,7 @@ interface ProcedureInterface
      *
      * @return mixed
      */
-    public function execute(string $connection, \PgFunc\Procedure $procedure);
+    public function execute($connection, \PgFunc\Procedure $procedure);
 
     /**
      * @param string $key
@@ -18,5 +18,5 @@ interface ProcedureInterface
      *
      * @return ProcedureInterface
      */
-    public function setConfiguration(string $key, array $connectionData): ProcedureInterface;
+    public function setConfiguration($key, array $connectionData): ProcedureInterface;
 }
